@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Cart Quantity</p>
+    <button onclick="console.log(`Cart Quantity: ${q}`);">Show Quantity</button>
+    <button onclick="q++; console.log(`Cart Quantity: ${q}`);">Add to Cart</button> <!-- q++ == q += 1 -->
+    <button onclick="q += 3; console.log(`Cart Quantity: ${q}`);">+3</button>
+    <button onclick="q += 2; console.log(`Cart Quantity: ${q}`);">+2</button>
+    <button onclick="q = 0; console.log('Cart was reset'); console.log(`Cart Quantity: ${q}`);">Reset Cart</button>
+    <button onclick="q--; console.log(`Cart Quantity: ${q}`);">Remove from Cart</button> <!-- q-- == q -= 1 -->
+    <button onclick="q -= 3; console.log(`Cart Quantity: ${q}`);">-3</button>
+    <button onclick="q -= 2; console.log(`Cart Quantity: ${q}`);">-2</button>
+
+    <script>
+        let q = 0;
+    </script>
+</body>
+</html>
