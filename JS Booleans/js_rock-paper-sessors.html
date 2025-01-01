@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Sessors</title>
+</head>
+<body>
+    <p>Rock Paper Sessors</p>
+
+    <button onclick="
+        computerPick = picks[Math.floor(Math.random() * picks.length)]; 
+        if (computerPick === 'rock') {
+            alert(`You pick Rock and Computer picked ${computerPick} -- Tie`);
+        } else if (computerPick === 'paper') {
+            alert(`You pick Rock and Computer picked ${computerPick} -- Computer Wins`);
+        } else {
+            alert(`You pick Rock and Computer picked ${computerPick} -- You Win`);
+        }
+        ">Rock
+    </button>
+
+    <button onclick="
+        computerPick = picks[Math.floor(Math.random() * picks.length)]; 
+        if (computerPick === 'paper') {
+            alert(`You pick Paper and Computer picked ${computerPick} -- Tie`);
+        } else if (computerPick === 'sessors') {
+            alert(`You pick Paper and Computer picked ${computerPick} -- Computer Wins`);
+        } else {
+            alert(`You pick Paper and Computer picked ${computerPick} -- You Win`);
+        }
+        ">Paper
+    </button>
+
+    <button onclick="
+        computerPick = picks[Math.floor(Math.random() * picks.length)]; 
+        if (computerPick === 'sessors') {
+            alert(`You pick sessors and Computer picked ${computerPick} -- Tie`);
+        } else if (computerPick === 'rock') {
+            alert(`You pick sessors and Computer picked ${computerPick} -- Computer Wins`);
+        } else {
+            alert(`You pick sessors and Computer picked ${computerPick} -- You Win`);
+        }
+        ">Sessors
+    </button>
+
+    <script>
+        const picks = ["rock", "paper", "sessors"];
+        let computerPick = "";
+    </script>
+
+</body>
+</html>
