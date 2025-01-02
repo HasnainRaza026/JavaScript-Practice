@@ -3,35 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Sessors</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <p>Rock Paper Sessors</p>
+    <p>Rock Paper Scissors</p>
 
     <button onclick="checkWinner('rock')">Rock</button>
-
     <button onclick="checkWinner('paper')">Paper</button>
-
-    <button onclick="checkWinner('sessors')">Sessors</button>
+    <button onclick="checkWinner('scissors')">Scissors</button>
+    <button onclick="resetScore()">Reset Score</button>
 
     <script>
-        const picks = ["rock", "paper", "sessors"];
-        let computerPick = "";
+        const picks = ["rock", "paper", "scissors"];
+        let scoreTracker = JSON.parse(localStorage.getItem('score')) || { win: 0, lose: 0, tie: 0 };
 
         function checkWinner(myPick) {
-            computerPick = picks[Math.floor(Math.random() * picks.length)]; 
+            const computerPick = picks[Math.floor(Math.random() * picks.length)];
 
             if (myPick === computerPick) {
-                alert(`You picked ${myPick} and Computer picked ${computerPick} -- Tie`);
+                scoreTracker.tie++;
+                alert(`You picked ${myPick} and Computer picked ${computerPick} -- Tie\nWins: ${scoreTracker.win}, Losses: ${scoreTracker.lose}, Ties: ${scoreTracker.tie}`);
             } else if (
-                (myPick === 'rock' && computerPick === 'sessors') ||
+                (myPick === 'rock' && computerPick === 'scissors') ||
                 (myPick === 'paper' && computerPick === 'rock') ||
-                (myPick === 'sessors' && computerPick === 'paper')
+                (myPick === 'scissors' && computerPick === 'paper')
             ) {
-                alert(`You picked ${myPick} and Computer picked ${computerPick} -- You Win`);
+                scoreTracker.win++;
+                alert(`You picked ${myPick} and Computer picked ${computerPick} -- You Win\nWins: ${scoreTracker.win}, Losses: ${scoreTracker.lose}, Ties: ${scoreTracker.tie}`);
             } else {
-                alert(`You picked ${myPick} and Computer picked ${computerPick} -- Computer Win`);
+                scoreTracker.lose++;
+                alert(`You picked ${myPick} and Computer picked ${computerPick} -- Computer Wins\nWins: ${scoreTracker.win}, Losses: ${scoreTracker.lose}, Ties: ${scoreTracker.tie}`);
             }
+
+            // Save the updated scores to localStorage
+            localStorage.setItem('score', JSON.stringify(scoreTracker));
+        }
+
+        function resetScore() {
+            scoreTracker = { win: 0, lose: 0, tie: 0 };
+            localStorage.setItem('score', JSON.stringify(scoreTracker));
+            alert("Score has been reset!");
         }
     </script>
 
