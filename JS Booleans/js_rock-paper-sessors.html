@@ -8,45 +8,31 @@
 <body>
     <p>Rock Paper Sessors</p>
 
-    <button onclick="
-        computerPick = picks[Math.floor(Math.random() * picks.length)]; 
-        if (computerPick === 'rock') {
-            alert(`You pick Rock and Computer picked ${computerPick} -- Tie`);
-        } else if (computerPick === 'paper') {
-            alert(`You pick Rock and Computer picked ${computerPick} -- Computer Wins`);
-        } else {
-            alert(`You pick Rock and Computer picked ${computerPick} -- You Win`);
-        }
-        ">Rock
-    </button>
+    <button onclick="checkWinner('rock')">Rock</button>
 
-    <button onclick="
-        computerPick = picks[Math.floor(Math.random() * picks.length)]; 
-        if (computerPick === 'paper') {
-            alert(`You pick Paper and Computer picked ${computerPick} -- Tie`);
-        } else if (computerPick === 'sessors') {
-            alert(`You pick Paper and Computer picked ${computerPick} -- Computer Wins`);
-        } else {
-            alert(`You pick Paper and Computer picked ${computerPick} -- You Win`);
-        }
-        ">Paper
-    </button>
+    <button onclick="checkWinner('paper')">Paper</button>
 
-    <button onclick="
-        computerPick = picks[Math.floor(Math.random() * picks.length)]; 
-        if (computerPick === 'sessors') {
-            alert(`You pick sessors and Computer picked ${computerPick} -- Tie`);
-        } else if (computerPick === 'rock') {
-            alert(`You pick sessors and Computer picked ${computerPick} -- Computer Wins`);
-        } else {
-            alert(`You pick sessors and Computer picked ${computerPick} -- You Win`);
-        }
-        ">Sessors
-    </button>
+    <button onclick="checkWinner('sessors')">Sessors</button>
 
     <script>
         const picks = ["rock", "paper", "sessors"];
         let computerPick = "";
+
+        function checkWinner(myPick) {
+            computerPick = picks[Math.floor(Math.random() * picks.length)]; 
+
+            if (myPick === computerPick) {
+                alert(`You picked ${myPick} and Computer picked ${computerPick} -- Tie`);
+            } else if (
+                (myPick === 'rock' && computerPick === 'sessors') ||
+                (myPick === 'paper' && computerPick === 'rock') ||
+                (myPick === 'sessors' && computerPick === 'paper')
+            ) {
+                alert(`You picked ${myPick} and Computer picked ${computerPick} -- You Win`);
+            } else {
+                alert(`You picked ${myPick} and Computer picked ${computerPick} -- Computer Win`);
+            }
+        }
     </script>
 
 </body>
