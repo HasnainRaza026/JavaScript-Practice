@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head Tails Guessing Game</title>
+</head>
+<body>
+    <button onclick="playGame('heads')">heads</button>
+    <button onclick="playGame('tails')">tails</button>
+
+    <script>
+        // Initialize score from localStorage or default to { wins: 0, loses: 0 }
+        let score = JSON.parse(localStorage.getItem("score")) || { wins: 0, loses: 0 };
+
+        function playGame(guess) {
+            const flip = Math.round(Math.random() * 10);
+
+            if (flip === 5) {
+                console.log("A Rare Case Occurred, the coin landed on its edge!");
+            } else if ((guess === "heads" && flip < 5) || (guess === "tails" && flip > 5)) {
+                score.wins++;
+                console.log(`You Guessed it right!\nNew Score wins: ${score.wins}, loses: ${score.loses}`);
+            } else {
+                score.loses++;
+                console.log(`Sorry Wrong Guess!\nNew Score wins: ${score.wins}, loses: ${score.loses}`);
+            }
+
+            // Update score in localStorage
+            localStorage.setItem("score", JSON.stringify(score));
+        }
+    </script>
+</body>
+</html>
