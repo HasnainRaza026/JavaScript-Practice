@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real time Input</title>
+</head>
+<body>
+    <input type="text" onkeyup="handleKeyUp(event)">
+    <p class="js-paragraph"></p>
+
+    <script>
+        function handleKeyUp(event) {
+            document.querySelector(".js-paragraph").innerText += event.key
+        }
+    </script>
+</body>
+</html>
