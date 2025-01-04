@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        p {
+            font-size: 20px;
+        }
+
+        .css-subscribe {
+            background-color: black;
+            color: white;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .css-subscribed {
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }
+
+        .css-input {
+            width: 250px;
+            font-size: 17px; 
+            padding: 10px;
+        }
+
+        .css-calculate {
+            background-color: green;
+            color: white;
+            font-size: 15px;
+            padding: 12px 15px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>Youtube Subscribe Button</p>
+    <button class="js-subscribe css-subscribe" onclick="subscribeAction()">Subscribe</button>
+
+    <hr>
+
+    <p>Pock Paper Scissors</p>
+    <a href="./DOM_Project_2.html">Click here</a>
+
+    <hr>
+
+    <p>Amazone Shipping Calculator</p>
+    <p>Orders under $40 += $10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="text" class="js-input css-input" placeholder="Cost of order" onkeydown="
+        if (event.key === 'Enter') {
+            calculateAction()
+        }
+    ">
+    <button class="css-calculate" onclick="calculateAction()">Calculate</button>
+    <p class="js-calculate"></p>
+
+    <script>
+        function subscribeAction() {
+            let buttonElem = document.querySelector(".js-subscribe");
+
+            if (buttonElem.innerText === "Subscribe") {
+                buttonElem.innerText  = "Subscribed";
+                buttonElem.classList.add("css-subscribed")
+            } else {
+                buttonElem.innerText  = "Subscribe";
+                buttonElem.classList.remove("css-subscribed")
+            }
+        }
+
+        function calculateAction() {
+            let inputValue = Number(document.querySelector(".js-input").value)
+            if (inputValue <= 40) {
+                inputValue += 10;
+            }
+            document.querySelector(".js-calculate").innerText = `$${String(inputValue)}`;
+        }
+    </script>
+</body>
+</html>
+</html>
