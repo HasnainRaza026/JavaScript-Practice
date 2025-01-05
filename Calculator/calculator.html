@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="main-body">
+        <div class="calculator-body">
+            <div class="results">
+                <p></p>
+            </div>
+
+            <div class="button-row">
+                <button onclick="displayCalculation('1')">1</button>
+                <button onclick="displayCalculation('2')">2</button>
+                <button onclick="displayCalculation('3')">3</button>
+                <button class="operation-sign" onclick="displayCalculation(' + ')">+</button>
+            </div>
+
+            <div class="button-row">
+                <button onclick="displayCalculation('4')">4</button>
+                <button onclick="displayCalculation('5')">5</button>
+                <button onclick="displayCalculation('6')">6</button>
+                <button id="minus-operation" class="operation-sign" onclick="displayCalculation(' - ')">-</button>
+            </div>
+
+            <div class="button-row">
+                <button onclick="displayCalculation('7')">7</button>
+                <button onclick="displayCalculation('8')">8</button>
+                <button onclick="displayCalculation('9')">9</button>
+                <button id="multiply-operation" class="operation-sign" onclick="displayCalculation(' × ')">×</button>
+            </div>
+
+            <div class="button-row">
+                <button onclick="displayCalculation('0')">0</button>
+                <button id="dot" onclick="displayCalculation('.')">.</button>
+                <button onclick="displayCalculation('=')">=</button>
+                <button id="divide-operation"  class="operation-sign" onclick="displayCalculation(' / ')">/</button>
+            </div>
+
+            <div class="button-row">
+                <button class="clear-button" onclick="displayCalculation('clear')">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
