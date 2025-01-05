@@ -1,4 +1,4 @@
-let todoArray = [];
+let todoArray = JSON.parse(localStorage.getItem("todos")) || [];
 
 function addTodo() {
     let inputTextElem = document.querySelector(".js-input-text");
@@ -24,6 +24,8 @@ function deleteTodo(id) {
 
 
 function renderTodoDiv() {
+    localStorage.setItem("todos", JSON.stringify(todoArray))
+
     let divElem = document.querySelector(".js-todos");
     divElem.innerHTML = "";
 
@@ -42,3 +44,5 @@ function renderTodoDiv() {
             </div>`;
     }
 }
+
+renderTodoDiv()
