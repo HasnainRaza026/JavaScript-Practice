@@ -1,0 +1,55 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.body-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.main-div {
+    background-color: #f1ece6;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.input {
+    width: 200px;
+    font-size: 17px; 
+    padding: 10px;
+    margin-right: 8px;
+}
+
+.button {
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    padding: 12px 38px;
+    border: none;
+    cursor: pointer;
+}
+
+.text, .date, .delt-button {
+    display: inline-block;
+}
+
+.text, .date  {
+    width: 220px;
+    margin-right: 10px;
+}
+
+.delt-button button {
+    background-color: #8b0000;
+    padding: 12px 33px;
+}
