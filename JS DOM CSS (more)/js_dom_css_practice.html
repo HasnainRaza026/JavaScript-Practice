@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM CSS Practice</title>
+
+    <link rel="stylesheet" href="js_dom_css_practice.css">
+</head>
+
+<body>
+    <!-- 1 Toggle Switch -->
+    <p>Toggle Switch</p>
+    <button class="gaming js-gaming" onclick="gaming()">Gaming</button>
+
+    <hr>
+
+    <!-- 3 Toggle Switchs -->
+    <p>3 Toggle Switch</p>
+    <button class="gaming js-gaming2" onclick="toggleSwitchs('.js-gaming2')">Gaming</button>
+    <button class="gaming js-music2" onclick="toggleSwitchs('.js-music2')">Music</button>
+    <button class="gaming js-tech2" onclick="toggleSwitchs('.js-tech2')">Tech</button>
+
+    <hr>
+
+    <!-- 3 Radio Buttons -->
+    <p>3 Radio Buttons</p>
+    <button class="gaming js-gaming3" onclick="radioButtons('.js-gaming3')">Gaming</button>
+    <button class="gaming js-music3" onclick="radioButtons('.js-music3')">Music</button>
+    <button class="gaming js-tech3" onclick="radioButtons('.js-tech3')">Tech</button>
+
+    <hr>
+
+    <!-- Amazong Shipping Calculator -->
+    <input type="text" class="js-input input" placeholder="Cost of order" onkeydown="
+    if (event.key === 'Enter') {
+        calculateAction()
+    }
+    ">
+    <button class="calculate" onclick="calculateAction()">Calculate</button>
+    <p class="result js-result"></p>
+
+
+    <script src="js_dom_css_practice.js"></script>
+</body>
+</html>

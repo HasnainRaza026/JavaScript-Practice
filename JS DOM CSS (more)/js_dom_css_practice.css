@@ -1,0 +1,38 @@
+p {
+ font-size: 20px;
+}
+
+.gaming {
+    background-color: #e1e1e1;
+    border: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.gaming-active {
+    background-color: black;
+    color: white;
+}
+
+
+/* Input field CSS */
+.input {
+    width: 250px;
+    font-size: 17px; 
+    padding: 10px;
+}
+
+.calculate {
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    padding: 12px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.result {
+    color: red;
+}
