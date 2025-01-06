@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+    <button class="js-add-cart" onclick="addCart()">Add to cart</button>
+    <p class="js-p1"></p>
+
+    <hr>
+
+    <button onclick="titleUpdate('add')">Add</button>
+    <button onclick="titleUpdate('remove')">Remove</button>
+
+    <script>
+        let isAdded = false;
+        let messages = 0;
+        let intervalId;
+
+        const titleElem = document.querySelector("title");
+
+        function loopTitle() {
+            intervalId = setInterval(function() {
+                        if (messages <= 0) {
+                        messages = 0;
+                        titleElem.innerText = "App";
+                        return;
+                    }
+                        if (titleElem.innerText === "App") {
+                            titleElem.innerText = `(${messages} New messages)`
+                        } else {
+                            titleElem.innerText = "App"
+                        }
+                }, 1000);
+            }
+
+        function addCart() {
+            if (!isAdded) {
+                const paragraphElem = document.querySelector(".js-p1");
+                paragraphElem.innerText = "Added";
+                isAdded = true;
+
+                setTimeout(function() {
+                    paragraphElem.innerText = "";
+                    isAdded = false;
+                }, 2000)
+            }
+        }
+
+        function titleUpdate(val) {  
+            if (val === "add") {
+                messages++
+            } else {
+                messages--;
+            }
+        }
+
+        loopTitle();
+    </script>
+</body>
+</html>
