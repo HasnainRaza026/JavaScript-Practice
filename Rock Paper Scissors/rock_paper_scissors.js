@@ -67,7 +67,7 @@ function autoPlay() {
 
     isAutoPlay = true;
     buttonElem.innerText = "Stop Play";
-    intervalId = setInterval(function play() {
+    intervalId = setInterval(() => {
         const pick1 = picks[Math.floor(Math.random() * picks.length)];
         checkWinner(myPick=pick1);
     }, 1000)
