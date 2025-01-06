@@ -4,6 +4,17 @@ let scoreTracker = JSON.parse(localStorage.getItem('score')) || { win: 0, lose: 
 let intervalId;
 let isAutoPlay = false;
 
+// Added event listner to play the game with keyboard
+document.body.addEventListener("keydown", (event) => {
+    if (event.key === "r") {
+        checkWinner("rock");
+    } else if (event.key === "p") {
+        checkWinner("paper");
+    } else if (event.key === "s") {
+        checkWinner("scissors");
+    }
+});
+
 function checkWinner(myPick) {
     const computerPick = picks[Math.floor(Math.random() * picks.length)];
 
