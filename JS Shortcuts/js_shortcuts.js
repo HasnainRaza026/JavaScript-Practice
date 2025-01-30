@@ -146,8 +146,90 @@ function getBook(id) {
 // Destructuring an Object
 const { title, author, publicationDate, pages, hasMovieAdaptation, genres } =
   getBook(2); // destructing the object relays on property names
-console.log(title, author, publicationDate, pages, hasMovieAdaptation, genres);
+// console.log(title, author, publicationDate, pages, hasMovieAdaptation, genres);
 
 // Destructuring an Array
 const [primaryGenre, secondaryGenre] = genres; // destructing the array relays on the index (sequence)
-console.log(primaryGenre, secondaryGenre);
+// console.log(primaryGenre, secondaryGenre);
+
+// Rest Operator
+const [primary, secondary, ...remaining] = genres; // ...newArrayName is a rest operator
+// console.log(primary, secondary, remaining);
+
+// Spread Operator in array
+const newArray = ["epic fantasy", ...genres]; // ...arrayName is a spread operator
+// console.log(newArray);
+
+// Spread Operator in object
+const updatedBook = {
+  moviePublicationDate: "12-8-2001",
+  ...getBook(2),
+};
+// console.log(updatedBook);
+
+// Ternary Operator (?)
+const a = 0 ? "truthy" : "falsy";
+// console.log(a);
+/*
+Ternary Operatore is a simple shortcut for if statemnet. It works as follow:
+'a = condition ? val1 : val2'
+
+val1 will be sved in the variable a if condition is true and val2 will be save in the varaible a if condition is false.
+
+It is used when we need to save the result in a varable or had to do quick check
+*/
+
+// Guard Operator (&&)
+const b = 5 && "hello";
+// console.log(b);
+/*
+Guard Operatore is a simple shortcut for if statemnet. It works as follow:
+'b = condition && val'
+
+val will be sved in the variable b if condition is true otherwise the condition (truthy or false value) will be saved in the variable.
+
+It is used when we need to save the result in a varable or had to do quick check
+*/
+
+// Default Operator (||)
+const c = 0 || "hi";
+// console.log(c);
+/*
+Default Operatore is a simple shortcut for if statemnet. It works as follow:
+'c = condition || val'
+
+val will be sved in the variable c if condition is false otherwise the condition (truthy or false value) will be saved in the variable.
+
+It is used when we need to save the result in a varable or had to do quick check
+*/
+
+// Nullish Coalescing Operator (??)
+const d = 0 ?? "hi";
+// console.log(c);
+/*
+It works similar to Default operator, but it only short circuit the null and undefined values, whereas Desualt operator short circuit all falsy values
+*/
+
+// Optional Chaining Operator (?.)
+const rating = getBook(2).reviews?.goodreads?.rating;
+// console.log(rating);
+/*
+?. is optional chaning operator, it checks if the previous operation (on left side) is undefine or not. If it is not undefine it will allow the furthur operation, otherwise if it is undefine it will immediately stop the operation and return undefine [Helps to avoid errors]
+*/
+
+// Array Map Method
+const titles = data.map((book) => book.title);
+// console.log(titles);
+
+// Array Filter Method
+const longBooks = data.filter((book) => book.pages > 500);
+// console.log(longBooks);
+
+// Array Reduce Method
+const allPages = data.reduce((acc, book) => acc + book.pages, 0); // Reduce method reduces the entire array in one value, it is mostly used when we had to perform some mathematical operation on all values in array and return the total output. 0 is the accumulator or the starting value.
+// console.log(allPages);
+
+//Array Sort Method
+const arr = [1, 3, 2, 6, 4];
+const newArr = arr.slice().sort((a, b) => a - b); // slice() creates a copy odf original array, sort() sorts the array, a-b for assending and b-a for descending
+// console.log(newArr);
